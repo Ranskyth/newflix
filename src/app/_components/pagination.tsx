@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { contextApp } from "./contextApp";
 
+
 interface Props{
     currentPage:number,
     totalPages:number,
@@ -8,11 +9,17 @@ interface Props{
 }
 
 export function Pagination({ currentPage, totalPages}:Props) {
+
     const {currentPages, previewPages} = useContext(contextApp)
+
+
+  
+
     return (
       <div className="flex justify-center items-center space-x-2 mt-6">
         <button
-          onClick={previewPages}
+          onClick={() => previewPages(Number(currentPage = currentPage - 1))}
+          
           disabled={currentPage === 1}
           className="px-4 py-2 bg-gray-700 text-white rounded-lg disabled:opacity-50"
         >
@@ -20,7 +27,7 @@ export function Pagination({ currentPage, totalPages}:Props) {
         </button>
         <span className="text-white">{currentPage} de {totalPages}</span>
         <button
-          onClick={currentPages}
+          onClick={() => currentPages(Number(currentPage = currentPage + 1))}
           disabled={currentPage === totalPages}
           className="px-4 py-2 bg-gray-700 text-white rounded-lg disabled:opacity-50"
         >
