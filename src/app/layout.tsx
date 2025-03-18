@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ContextAppProvider } from "./_components/contextApp";
+import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,9 @@ export default function RootLayout({
       >
    
    <ContextAppProvider>
+    <Header/>
         {children}
+        <Footer/>
    </ContextAppProvider>
       
       </body>
