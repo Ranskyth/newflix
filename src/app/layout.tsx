@@ -4,6 +4,7 @@ import "./globals.css";
 import { ContextAppProvider } from "./_components/contextApp";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,12 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-   
+   <Suspense>
    <ContextAppProvider>
     <Header/>
         {children}
         <Footer/>
    </ContextAppProvider>
+   </Suspense>
       
       </body>
     </html>
